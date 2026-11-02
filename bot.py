@@ -39,7 +39,7 @@ def is_not_text(message, step):
 def get_name(message):
     if is_restart(message):
         return
-    if is_not_text(message, get_niche):
+    if is_not_text(message, get_name):
         return
     answers[message.chat.id]["name"] = message.text
     bot.send_message(message.chat.id, "2/5. Чем занимается ваш бизнес?")
@@ -59,7 +59,7 @@ def get_niche(message):
 def get_need(message):
     if is_restart(message):
         return
-    if is_not_text(message, get_niche):
+    if is_not_text(message, get_need):
         return
     answers[message.chat.id]["need"] = message.text
     bot.send_message(
@@ -72,7 +72,7 @@ def get_need(message):
 def get_budget(message):
     if is_restart(message):
         return
-    if is_not_text(message, get_niche):
+    if is_not_text(message, get_budget):
         return
     answers[message.chat.id]["budget"] = message.text
     bot.send_message(message.chat.id, "5/5. Когда нужно запустить?")
@@ -81,6 +81,8 @@ def get_budget(message):
 
 def get_deadline(message):
     if is_restart(message):
+        return
+    if is_not_text(message, get_deadline):
         return
     answers[message.chat.id]["deadline"] = message.text
     a = answers[message.chat.id]
